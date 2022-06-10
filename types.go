@@ -1,4 +1,4 @@
-package main
+package weather
 
 type Weather struct {
 	Now      int64    `json:"now"`
