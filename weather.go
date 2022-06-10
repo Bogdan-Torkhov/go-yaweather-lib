@@ -8,8 +8,6 @@ import (
 	"net/http"
 )
 
-const yaKey = "47ec4e13-b304-4e7b-bd7c-0ca727d87fbc"
-
 type key string
 
 func GetWeather(apikey key, wid, let float64) (stc *Weather, err error) {
@@ -20,7 +18,7 @@ func GetWeather(apikey key, wid, let float64) (stc *Weather, err error) {
 	if err != nil {
 		return
 	}
-	req.Header.Add("X-Yandex-API-Key", yaKey)
+	req.Header.Add("X-Yandex-API-Key", string(apikey))
 	resp, err := client.Do(req)
 	if err != nil {
 		return
