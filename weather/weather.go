@@ -8,10 +8,10 @@ import (
 	"net/http"
 )
 
-type key string
+type Key string
 
-func GetWeather(apikey key, wid, let float64) (stc *Weather, err error) {
-	url := fmt.Sprintf("https://api.weather.yandex.ru/v2/informers?lat=%f?lon=%f", wid, let)
+func GetWeather(apikey Key, wid, let float64, lang string) (stc *Weather, err error) {
+	url := fmt.Sprintf("https://api.weather.yandex.ru/v2/informers?lat=%f&lon=%f&lang=%s", wid, let, lang)
 	stc = new(Weather)
 	client := http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
